@@ -18,13 +18,11 @@ class BookmarkView {
     this.$bookmarkButton.addEventListener('click', () => {
       const url = this.$bookmarkInput.value;
       const addNewBookmarkEvent = new CustomEvent('addNewBookmark', { detail: { url: url } });
-      console.log(addNewBookmarkEvent);
       document.dispatchEvent(addNewBookmarkEvent);
     });
   }
 
   render (bookmarks) {
-    console.log(bookmarks);
     this.$bookmarkList.innerHTML = '';
     bookmarks.forEach((bookmark) => {
       const $bookmark = this._bookmarkElement(bookmark.url);
